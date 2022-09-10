@@ -1,21 +1,22 @@
 version: "3.8"
 services:
   web:
-    build: ./frontend
+    image: todo-web-app
     depends_on:
-      - api
+      - todo-api
     ports:
       - "3000:3000"
     networks:
-      - network-backend
-  api:
-    build: ./backend
+      - network-frontend
+  todo-api:
+    image: todo-api
     depends_on:
       - mongo
     ports:
       - "3001:3001"
     networks: 
      - network-backend
+     - network-frontend
   
   mongo:
     image: mongo
@@ -31,8 +32,18 @@ services:
     networks: 
      - network-backend
 
+
+
 networks:
   network-backend:
+      driver: bridge
+  network-frontend:
+      driver: bridge
 
 volumes: 
   mongodb_data:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: './data'
