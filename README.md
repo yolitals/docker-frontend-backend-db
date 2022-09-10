@@ -1,6 +1,21 @@
-A demonstration of Docker to implement a simple 3 tier architecture
+# Ejercicio
 
-* frontend will be able to access the mid-tier
-* mid-tier will be able to access the db
-
-In order to run this in docker, simply type ```docker-compose up``` at the command prompt. Docker will then create the [MongoDB](https://www.mongodb.com/) from the stock [mongo](https://hub.docker.com/_/mongo) image. The api uses [nodejs](https://nodejs.org/) with [express](http://expressjs.com/) and is built from a [node:alpine](https://hub.docker.com/_/node) image. The front end uses [ReactJS](https://reactjs.org/) and built from a [node:alpine](https://hub.docker.com/_/node) image.
+    - Crear una imagen de Docker para el backend, los assets de la aplicación se encuentran en ./backend
+      - La aplicación esta en node y se ejecuta de la siguiente forma:
+        ```sh
+        $ node server.js
+        ```
+    - Crear una imagen de Docker para el frontend, los assets se encuentran en la carpeta ./frontend
+      - La Aplicación esta en javascript y se ejecuta de la siguiente forma:
+        ```sh
+        $ npm start
+        ```
+    - Desplegar los 3 componentes de la aplicación:
+      - Frontend
+      - Backend
+      - Base de datos
+    - Condiciones:
+      - La información de la base de datos debe persistir.
+      - Las comunicaciones entre los contenedores se deben limitar a lo siguiente:
+        - La base de datos unicamente podra ser accedida desde el backend.
+        - El frontend unicamente podra acceder al backend. 
