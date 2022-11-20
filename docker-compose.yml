@@ -2,12 +2,19 @@ version: "3.8"
 services:
   web:
     image: todo-web-app
+    environment: 
+      REACT_APP_API_URL: http://localhost:3001/api
     depends_on:
       - todo-api
     ports:
       - "3000:3000"
     networks:
       - network-frontend
+    deploy:
+        resources:
+            limits:
+              cpus: "0.5"
+              memory: 256M
   todo-api:
     image: todo-api
     depends_on:
@@ -17,6 +24,11 @@ services:
     networks: 
      - network-backend
      - network-frontend
+    deploy:
+        resources:
+            limits:
+              cpus: "0.25"
+              memory: 64M
   
   mongo:
     image: mongo
@@ -31,6 +43,11 @@ services:
     #   - 27017:27017
     networks: 
      - network-backend
+    deploy:
+        resources:
+            limits:
+              cpus: "0.25"
+              memory: 65M
 
 
 
