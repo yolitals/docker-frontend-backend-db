@@ -6,4 +6,8 @@ npm-debug.log
 *.sublime-project
 *.sublime-workspace
 .vs
+<<<<<<< HEAD
 data/*
+=======
+data/
+>>>>>>> 4a47916a087915e5c585af9bd713e41ef9a5f0f4
