@@ -22,6 +22,9 @@ $ mkdir -p /tmp/data
 $ sudo gpasswd -a $USER docker
 ## Es necesario reiniciar la sesión para que los cambios se apliquen
 
+## Install docker-compose if is not installed
+sudo apt  install docker-compose
+
 ## Ejecutar los contenedores
 $ docker-compose up -d
 
