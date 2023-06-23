@@ -23,6 +23,8 @@ services:
   mongo:
     image: mongo
     restart: always
+    volumes: 
+      - mongodb_data:/data/db
     environment: 
       MONGODB_INITDB_ROOT_USERNAME: username
       MONGODB_INITDB_ROOT_PASSWORD: password
