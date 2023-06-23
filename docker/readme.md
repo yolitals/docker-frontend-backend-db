@@ -25,6 +25,10 @@ $ sudo gpasswd -a $USER docker
 ## Install docker-compose if is not installed
 sudo apt  install docker-compose
 
+## En el archivo docker/docker-compose.yml actualizar el endpoint de la variable REACT_APP_API_URL, utilizar la IP publica del host.
+
+## Crear una regla de firewall que permita trafico de ingreso al puerto 3001, que es donde estará corriendo el backend.
+
 ## Ejecutar los contenedores
 $ docker-compose up -d
 
