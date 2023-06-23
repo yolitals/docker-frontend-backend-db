@@ -1,15 +1,17 @@
 version: "3.8"
 services:
   web:
-    image: todo-web-app
+    image: yolix/todo-web-app:v1
     depends_on:
       - todo-api
     ports:
       - "3000:3000"
+    environment:
+      REACT_APP_API_URL: http://localhost:3001/api
     networks:
       - network-frontend
   todo-api:
-    image: todo-api
+    image: yolix/todo-api:v1
     depends_on:
       - mongo
     ports:
@@ -26,13 +28,8 @@ services:
     environment: 
       MONGODB_INITDB_ROOT_USERNAME: username
       MONGODB_INITDB_ROOT_PASSWORD: password
-    # uncomment following lines to access db locally
-    # ports:
-    #   - 27017:27017
     networks: 
      - network-backend
-
-
 
 networks:
   network-backend:
@@ -46,4 +43,4 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: './data'
+      device: '/tmp/data'
